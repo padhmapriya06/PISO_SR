@@ -33,11 +33,11 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity piso is
 
- Port (clk,rst,load:in std_logic; 
+Port (clk,rst,load:in std_logic; 
  
-       p_data: in std_logic_vector(3 downto 0);
-       
-       s_out : out std_logic);
+p_data: in std_logic_vector(3 downto 0);
+ 
+s_out : out std_logic);
 
 end piso;
 
@@ -53,19 +53,19 @@ begin
 
 if rst='1' then 
 
-   temp_reg<=(others=>'0');
+temp_reg<=(others=>'0');
 
 elsif rising_edge(clk) then 
 
-      if load ='1' then 
+if load ='1' then 
 
-          temp_reg<=p_data;
+temp_reg<=p_data;
       
-      else
+else
       
-          temp_reg <= temp_reg(2 downto 0) & '0';
+temp_reg <= temp_reg(2 downto 0) & '0';
 
-      end if
+end if
 
 end if
 
